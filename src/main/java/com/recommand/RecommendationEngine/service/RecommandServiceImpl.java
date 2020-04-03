@@ -25,7 +25,7 @@ public class RecommandServiceImpl implements RecommandService {
     public List<Products> getProductList(String productId) {
         try {
             List<Products>productsList=recommandDao.getProductList(productId);
-            HashMap<String,Integer> recommandMap=new HashMap<String, Integer>();
+            /*HashMap<String,Integer> recommandMap=new HashMap<String, Integer>();
             HashMap<String,Integer> highRecommandMap=new HashMap<String, Integer>();
             List<Products>recommandList=new ArrayList<Products>();
             productsList.forEach(products -> {
@@ -51,8 +51,11 @@ public class RecommandServiceImpl implements RecommandService {
             highRecommandMap.forEach((productName, count) -> {
                 recommandList.add(new Products(productId,productName,count));
                 log.info("ProductId: "+productId+"\tProductName: "+productName+"\tCount: "+count);
+            });*/
+            productsList.forEach(products -> {
+                log.info("ProductId: "+products.getProductId()+"\tProductName: "+products.getProductName()+"\tCount: "+products.getCount());
             });
-            return recommandList;
+            return productsList;
         } catch (SQLException e) {
             e.printStackTrace();
         }

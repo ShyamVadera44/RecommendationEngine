@@ -29,11 +29,11 @@ public class RecommandController {
     public ResponseEntity<Object> getrecomandList(@PathVariable String productId) {
         try {
             List<Products> recommandList=recommandService.getProductList(productId);
-            if(recommandList.size()>5){
+           /* if(recommandList.size()>5){
                 return ResponseEntity.ok().body(recommandList.subList(0,4));
-            }else {
+            }else {*/
                 return ResponseEntity.ok().body(recommandList);
-            }
+           // }
         } catch (Exception ex) {
            log.error(ex.getMessage());
         }

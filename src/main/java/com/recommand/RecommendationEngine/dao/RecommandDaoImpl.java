@@ -24,7 +24,7 @@ public class RecommandDaoImpl implements RecommandDao{
     public List<Products> getProductList(String productId) throws SQLException {
 
         try {
-            List<Map<String, Object>> rows=jdbcTemplate.queryForList(recommandQuery,productId);
+            List<Map<String, Object>> rows=jdbcTemplate.queryForList(recommandQuery,productId,productId);
 
             return ProductRowMapper.productRows(rows,productId);
         }catch (Exception e){
